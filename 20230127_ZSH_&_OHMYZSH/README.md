@@ -120,8 +120,10 @@
 - 최근 많이 사용되는 shell
 - 테마 설정이 훨씬 편리함
 - Pros
-  - auto completion ![](images/autocompletion.gif)
-  - highlighting ![](images/highlighting.gif)
+  - auto completion
+    ![](images/autocompletion.gif)
+  - highlighting 
+    ![](images/highlighting.gif)
 - Cons
 
   - Small community
