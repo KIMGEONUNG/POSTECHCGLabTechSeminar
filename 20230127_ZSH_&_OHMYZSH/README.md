@@ -121,8 +121,10 @@
 - 테마 설정이 훨씬 편리함
 - Pros
   - auto completion
+  
     ![](images/autocompletion.gif)
   - highlighting 
+  
     ![](images/highlighting.gif)
 - Cons
 
