@@ -117,7 +117,6 @@ So we can do like this
 echo */*/* | xargs rm
 ```
 
-
 ### Other trick rather than wild card
 
 ```sh

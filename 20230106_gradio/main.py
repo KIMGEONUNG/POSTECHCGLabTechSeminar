@@ -11,7 +11,7 @@ from random import shuffle
 class GraysGUI(object):
     """Recolorization GUI System"""
 
-    def __init__(self, share=False):
+    def __init__(self, share=True):
         self.share = share
         self.height = 300
 
