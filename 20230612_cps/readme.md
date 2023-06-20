@@ -1,0 +1,86 @@
+# File Copy Paste
+
+## Motivation
+
+Copy-paste like GUI window explore
+
+## Prerequisite
+
+```sh
+cd ~
+
+export PATH=$PATH:$HOME/bin
+
+mkdir -p bin
+touch bin/cps
+chmod 775 bin/cps
+```
+
+## Usecase
+
+```sh
+
+# Copy
+cps *
+
+# Paste
+cpss
+
+```
+
+## Complete Example
+
+
+### cps script
+```sh
+#!/bin/bash
+
+set -e
+
+path=$MY_CACHE_CP
+
+while [[ $# -gt 0 ]]
+do
+  key="${1}"
+
+  case ${key} in
+  -f|--flatten)
+    shift 1
+
+    echo "echo From cps program with flatten" > $path
+    for i in $@; do
+      i_hat=$(echo $i | sed "s/^\.\///" | sed "s:/:_:g") 
+      echo "cp $(pwd)/$i ${i_hat} -rnv" >> $path
+    done
+    echo "echo cps end" >> $path
+    break;
+
+    ;;
+  -h|--help)
+    echo "Copy script genaration"
+    exit 0
+    ;;
+  *)    # unknown option
+
+    echo "echo From cps program" > $path
+    for i in $@; do
+      echo "cp $(pwd)/$i ./ -rnv" >> $path
+    done
+    echo "echo cps end" >> $path
+    break;
+
+    ;;
+  esac
+done
+
+echo -e "\033[32mSCRIPT DESCRIBTION \033[0m" >&2
+highlight -S bash -O ansi $MY_CACHE_CP
+```
+
+### cps script
+
+```sh
+#!/bin/bash
+set -e
+bash $MY_CACHE_CP
+```
